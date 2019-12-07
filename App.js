@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import Explore from './screens/Explore';
 import Saved from './screens/Saved';
@@ -19,6 +20,12 @@ const App = (props) => {
 const TabNavigator = createBottomTabNavigator({
   Explore: {
     screen: Explore,
+    navigationOptions: {
+      tabBarLabel: 'Explore',
+      tabBarIcon: ({tintColor}) => (
+        <Icon name="ios-search-outline" color={tintColor} size={24} />
+      )
+    }
   },
   Saved: {
     screen: Saved
