@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, SafeAreaView, TextInput, Platform, ScrollView, Image, Dimensions} from 'react-native';
+import { View, Text, SafeAreaView, TextInput, Platform, ScrollView, Image, Dimensions, Animated, StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SafeViewAndroid from '../components/SafeViewAndroid';
 
 // Component
 import Category from '../components/Explore/Category';
 import Home from '../components/Explore/Home';
+import Tags from '../components/Explore/Tag';
 
 const { height, width } = Dimensions.get('window');
 
@@ -26,6 +27,10 @@ const Explore = () => {
               style={{ flex: 1, fontWeight: '700', backgroundColor: 'white' }}
             />
           </View>
+          <Animated.View style={{flexDirection: 'row', marginHorizontal: 20, position: 'relative', top: 10}}>
+            <Tags name="Guests" />
+            <Tags name="Dates" />
+          </Animated.View>
         </View>
         {/** End of Header View */}
         <ScrollView scrollEventThrottle={16}>
