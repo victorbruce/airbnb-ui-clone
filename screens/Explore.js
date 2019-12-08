@@ -5,6 +5,7 @@ import SafeViewAndroid from '../components/SafeViewAndroid';
 
 // Component
 import Category from '../components/Explore/Category';
+import Home from '../components/Explore/Home';
 
 const { height, width } = Dimensions.get('window');
 
@@ -41,12 +42,23 @@ const Explore = () => {
                   <Category name="Restaurant" imageUri={require('../assets/restaurant.jpeg')} />
                 </ScrollView>
               </View>
+              {/** End of Category Section */}
               <View style={{marginTop: 40, paddingHorizontal: 20}}>
                 <Text style={{fontSize: 24, fontWeight: '700'}}>Introducing Airbnb Plus</Text>
                 <Text style={{fontWeight: '100', marginTop: 10}}>A new selection of homes verified for quality & comfort</Text>
                 <View style={{width: width-40, height: 200, marginTop: 20}}>
                   <Image source={require('../assets/home.jpeg')} style={{flex:1, height: null, width: null, resizeMode: 'cover', borderRadius: 5, borderWidth: 1, borderColor: '#ddd'}}/>
                 </View>
+              </View>{/** End of Introduction section */}
+            </View>{/**End of Wrapper */}
+            <View style={{marginTop: 40}}>
+              <Text style={{fontSize:24, fontWeight: '700', paddingHorizontal: 20}}>
+                Homes around the world
+              </Text>
+              <View style={{paddingHorizontal: 20, marginTop: 20, flexDirection: 'row', flexWrap:'wrap', justifyContent: 'space-between'}}>
+                <Home width={width} name="The cozy place" type="PRIVATE ROOM - 2 BEDS" price={82} rating={4}/>
+                <Home width={width} name="The cozy place" type="PRIVATE ROOM - 2 BEDS" price={82} rating={4}/>
+                <Home width={width} name="The cozy place" type="PRIVATE ROOM - 2 BEDS" price={82} rating={4}/>
               </View>
             </View>
         </ScrollView>
