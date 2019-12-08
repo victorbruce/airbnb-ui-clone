@@ -3,6 +3,9 @@ import { View, Text, SafeAreaView, TextInput, Platform, ScrollView, Image} from 
 import Icon from 'react-native-vector-icons/Ionicons';
 import SafeViewAndroid from '../components/SafeViewAndroid';
 
+// Component
+import Category from '../components/Explore/Category';
+
 const Explore = () => {
   return (
     <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
@@ -15,7 +18,7 @@ const Explore = () => {
             <Icon name="ios-search" size={20} style={{marginRight: 20}}/>
             <TextInput 
               underlineColorAndroid='transparent'
-              placeholder="Try Ghana"
+              placeholder="Try Accra"
               placeholderTextColor="grey"
               style={{ flex: 1, fontWeight: '700', backgroundColor: 'white' }}
             />
@@ -24,22 +27,24 @@ const Explore = () => {
         {/** End of Header View */}
         <ScrollView scrollEventThrottle={16}>
             <View style={{flex:1, paddingTop: 20}}>
-              <Text style={{fontSize: 24, fontWeight: '700', paddingHorizontal: 20, minHeight: '100%'}}>
-                What can we help you find, Victor?</Text>
-            </View>
-            <View style={{height: 130, marginTop: 20}}>
-              <ScrollView>
-                <View style={{ height: 130, width: 130, marginLeft: 20, borderWidth: 0.4, borderColor: '#ddd'}}>
-                  <View style={{flex:2}}>
-                    <Image source={require('../assets/home.jpeg')} style={{flex:1, width: null, height: null, resizeMode: 'cover'}} />
-                  </View>
-                  <View style={{flex:1, paddingLeft: 10, paddingTop:10}}>
-                    <Text>Home</Text>
-                  </View>
-                </View>
-              </ScrollView>
+              <View>
+                <Text style={{fontSize: 24, fontWeight: '700', paddingHorizontal: 20, minHeight: '100%'}}>
+                  What can we help you find, Victor?</Text>
+              </View>
+              {/** Category Section */}
+              <View style={{height: 130, marginTop: 20}}>
+                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                  <Category name="Home" imageUri={require('../assets/home.jpeg')} />
+                  <Category name="Experiences" imageUri={require('../assets/experiences.jpeg')} />
+                  <Category name="Restaurant" imageUri={require('../assets/restaurant.jpeg')} />
+                </ScrollView>
+              </View>
+              <View style={{marginTop: 40, paddingHorizontal: 20}}>
+                <Text style={{fontSize: 24, fontWeight: '700'}}>Introducing Airbnb Plus</Text>
+              </View>
             </View>
         </ScrollView>
+        
       </View>
     </SafeAreaView>
   )
